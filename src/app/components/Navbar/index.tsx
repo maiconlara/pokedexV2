@@ -32,7 +32,7 @@ const Navbar = () => {
   ];
 
   return (
-    <Nextbar position="static" className="bg-[#121326]        ">
+    <Nextbar position="static" className="bg-[#121326]">
       <NavbarBrand>
         <p className="font-bold text-inherit">PKMN</p>
       </NavbarBrand>
@@ -56,7 +56,7 @@ const Navbar = () => {
           <Link href="#">Login</Link>
         </NavbarItem>
         <NavbarItem>
-          <Button as={Link} color="primary" href="#" variant="flat">
+          <Button as={Link} color="primary" href="#" variant="light">
             Sign Up
           </Button>
         </NavbarItem>
