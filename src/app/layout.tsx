@@ -18,7 +18,8 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${inter.className} text-white text-lg leading-relaxed bg-[#111111] `}
+        className={`${inter.className} text-white text-lg leading-relaxed bg-[#1C1D3A] `}
+        // #171830 ou #1C1D3A ??
       >
         <main className="flex flex-col w-screen h-screen overflow-y-auto overflow-x-hidden "
          >

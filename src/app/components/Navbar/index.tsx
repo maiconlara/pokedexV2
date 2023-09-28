@@ -32,15 +32,18 @@ const Navbar = () => {
   ];
 
   return (
-    <Nextbar position="static" className="bg-transparent">
+    <Nextbar position="static" className="bg-[#121326]        ">
       <NavbarBrand>
         <p className="font-bold text-inherit">PKMN</p>
       </NavbarBrand>
-      <NavbarContent className="hidden sm:flex gap-6 " justify="center">
+      <NavbarContent className="flex gap-3 sm:gap-6" justify="center">
         {routes.map((item) => (
           <NavbarItem
             key={item.id}
             isActive={pathname === item.path ? true : false}
+            className={
+              pathname === item.path ? "pointer-events-none text-blue-400" : ""
+            }
           >
             <Link className="text-white" href={item.path}>
               {item.text}
