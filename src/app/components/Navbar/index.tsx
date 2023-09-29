@@ -2,6 +2,8 @@
 import React from "react";
 import { usePathname } from "next/navigation";
 
+import icon from "@/app/icon.png";
+
 import {
   Navbar as Nextbar,
   NavbarBrand,
@@ -10,6 +12,7 @@ import {
   Link,
   Button,
 } from "@nextui-org/react";
+import Image from "next/image";
 
 const Navbar = () => {
   const pathname = usePathname();
@@ -33,33 +36,33 @@ const Navbar = () => {
 
   return (
     <Nextbar position="static" className="bg-[#121326]">
-      <NavbarBrand>
+      <NavbarBrand className="gap-3">
+        <Image src={icon} alt="" className="max-w-[32px] max-h-[32px]" />
         <p className="font-bold text-inherit">PKMN</p>
       </NavbarBrand>
-      <NavbarContent className="flex gap-3 sm:gap-6" justify="center">
+      <NavbarContent className="flex gap-3 sm:gap-4" justify="center">
         {routes.map((item) => (
           <NavbarItem
             key={item.id}
             isActive={pathname === item.path ? true : false}
-            className={
-              pathname === item.path ? "pointer-events-none text-blue-400" : ""
-            }
+            className={pathname === item.path ? "pointer-events-none" : ""}
           >
-            <Link className="text-white" href={item.path}>
+            <Button
+              as={Link}
+              color="primary"
+              className={
+                pathname === item.path ? "text-bold text-blue-400 font-bold" : " text-white"
+              }
+              href={item.path}
+              variant="light"
+            >
               {item.text}
-            </Link>
+            </Button>
+            {/* <Link className="text-white" href={item.path}>
+              {item.text}
+            </Link> */}
           </NavbarItem>
         ))}
-      </NavbarContent>
-      <NavbarContent justify="end">
-        <NavbarItem className="hidden lg:flex">
-          <Link href="#">Login</Link>
-        </NavbarItem>
-        <NavbarItem>
-          <Button as={Link} color="primary" href="#" variant="light">
-            Sign Up
-          </Button>
-        </NavbarItem>
       </NavbarContent>
     </Nextbar>
   );
