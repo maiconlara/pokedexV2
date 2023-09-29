@@ -1,6 +1,7 @@
 "use client";
 import React from "react";
 import { usePathname } from "next/navigation";
+import Link from "next/link";
 
 import icon from "@/app/icon.png";
 
@@ -9,7 +10,6 @@ import {
   NavbarBrand,
   NavbarContent,
   NavbarItem,
-  Link,
   Button,
 } from "@nextui-org/react";
 import Image from "next/image";
@@ -47,20 +47,20 @@ const Navbar = () => {
             isActive={pathname === item.path ? true : false}
             className={pathname === item.path ? "pointer-events-none" : ""}
           >
+            <Link className="text-white" href={item.path}>
             <Button
-              as={Link}
               color="primary"
               className={
-                pathname === item.path ? "text-bold text-blue-400 font-bold" : " text-white"
+                pathname === item.path
+                  ? "text-bold text-blue-400 font-bold"
+                  : " text-white"
               }
               href={item.path}
               variant="light"
             >
               {item.text}
             </Button>
-            {/* <Link className="text-white" href={item.path}>
-              {item.text}
-            </Link> */}
+            </Link> 
           </NavbarItem>
         ))}
       </NavbarContent>
