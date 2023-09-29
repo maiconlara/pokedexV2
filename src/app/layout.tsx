@@ -23,14 +23,15 @@ export default function RootLayout({
       >
         <main className="flex flex-col w-screen h-screen overflow-y-auto overflow-x-hidden ">
           <Navbar />
-          <div className="flex h-full max-h-screen w-full flex-col bg-cover px-6 ">
+          <div className="flex h-full max-h-screen w-full flex-col bg-cover px-4 ">
             {children}
-            <div className="relative">
-              <a href="https://www.github.com/maiconlara" target="_blank" className="fixed right-0 bottom-0 p-2 text-xs hover:text-blue-300 transition-colors ">
+            
+          </div>
+          <div className="relative">
+              <a href="https://www.github.com/maiconlara" target="_blank" className="absolute right-0 bottom-0 p-2 text-xs hover:text-blue-300 transition-colors ">
                 Feito Com 💙 por Maicon Lara
               </a>
             </div>
-          </div>
         </main>
       </body>
     </html>
