@@ -3,16 +3,18 @@
 import { NextUIProvider } from "@nextui-org/react";
 import { useState } from "react";
 
-export default function Home() {
+const Pokemons = () => {
   return (
     <>
       <NextUIProvider>
-        <main className="flex max-w-screen max-h-screen flex-col items-center justify-between">
+        <main className="flex max-w-screen max-h-screen flex-col items-center justify-center">
           <div className="items-center justify-center flex h-[80vh]">
-            <p>Inicio</p>
+
+          <p>Pokemons</p>
           </div>
         </main>
       </NextUIProvider>
     </>
   );
-}
+};
+export default Pokemons;
