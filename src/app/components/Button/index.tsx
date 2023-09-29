@@ -1,6 +1,6 @@
 "use client";
 
-import { Button, NextUIProvider } from "@nextui-org/react";
+import { Button } from "@nextui-org/react";
 
 
 const ButtonC = () => {

@@ -1,7 +1,6 @@
 "use client";
 
-import { NextUIProvider } from "@nextui-org/react";
-import { useState } from "react";
+
 
 const Pokemons = () => {
   return (

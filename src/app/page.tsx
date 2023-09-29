@@ -1,5 +1,4 @@
-import { Button, NextUIProvider } from "@nextui-org/react";
-import { useState } from "react";
+
 import ButtonC from "./components/Button";
 
 export default function Home() {
