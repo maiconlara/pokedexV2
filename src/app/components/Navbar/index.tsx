@@ -4,7 +4,7 @@ import { usePathname } from "next/navigation";
 import Link from "next/link";
 
 import icon from "@/app/icon.png";
-
+import pokemonLogo from "@/app/assets/pokemonLogo.webp"
 import {
   Navbar as Nextbar,
   NavbarBrand,
@@ -37,8 +37,7 @@ const Navbar = () => {
   return (
     <Nextbar position="static" className="bg-[#121326]">
       <NavbarBrand className="gap-3">
-        <Image src={icon} alt="" className="max-w-[32px] max-h-[32px]" />
-        <p className="font-bold text-inherit">PKMN</p>
+        <Image src={pokemonLogo} alt="Pokemin" className="max-w-[100px] max-h-[40px]" />
       </NavbarBrand>
       <NavbarContent className="flex gap-3 sm:gap-4" justify="center">
         {routes.map((item) => (
