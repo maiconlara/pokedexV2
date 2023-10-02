@@ -25,6 +25,8 @@ const Navbar = () => {
       position="static"
       className="bg-[#121326]"
       onMenuOpenChange={setIsOpen}
+      isMenuOpen={isOpen}
+      
     >
       <NavbarMenuToggle
         aria-label={isOpen ? "Close menu" : "Open menu"}
@@ -38,7 +40,7 @@ const Navbar = () => {
         />
       </NavbarBrand>
       <NavbarContent
-        className="hidden md:flex gap-3 sm:gap-4 "
+        className="hidden md:flex gap-3 sm:gap-5 "
         justify="center"
       >
         {routes.map((item) => (
@@ -47,24 +49,20 @@ const Navbar = () => {
             isActive={pathname === item.path ? true : false}
             className={pathname === item.path ? "pointer-events-none" : ""}
           >
-            <Link className="text-white" href={item.path}>
-              <Button
-                color="primary"
-                className={
-                  pathname === item.path
-                    ? "text-bold text-blue-400 font-bold min-w-[120px]"
-                    : " text-gray-200 font-medium min-w-[120px]"
-                }
-                href={item.path}
-                variant="light"
-              >
-                {item.text}
-              </Button>
+            <Link
+              className={
+                pathname === item.path
+                  ? "text-bold text-blue-400 font-bold min-w-[120px]"
+                  : " text-gray-200 font-medium min-w-[120px] hover:text-white"
+              }
+              href={item.path}
+            >
+              {item.text}
             </Link>
           </NavbarItem>
         ))}
       </NavbarContent>
-      <MobileMenu pathname={pathname}/>
+      <MobileMenu pathname={pathname} setIsOpen={setIsOpen} />
     </Nextbar>
   );
 };

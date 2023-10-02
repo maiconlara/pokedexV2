@@ -2,33 +2,31 @@
 import React from "react";
 import Link from "next/link";
 import { routes } from "@/app/utils/routes";
-import { Button, NavbarMenu, NavbarMenuItem } from "@nextui-org/react";
+import { NavbarMenu, NavbarMenuItem } from "@nextui-org/react";
 
 interface MobileMenuProps {
   pathname: string;
+  setIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-const MobileMenu = ({ pathname }: MobileMenuProps) => {
+const MobileMenu = ({ pathname, setIsOpen}: MobileMenuProps) => {
   return (
-    <NavbarMenu className="bg-[#121326]/40">
+    <NavbarMenu className="bg-[#121326]/40 gap-5 pt-6">
       {routes.map((item) => (
         <NavbarMenuItem
           key={item.id}
           className={pathname === item.path ? "pointer-events-none" : ""}
         >
-          <Link className="text-white" href={item.path}>
-            <Button
-              color="primary"
-              className={
-                pathname === item.path
-                  ? "text-bold text-blue-400 font-bold w-full flex justify-start"
-                  : " text-gray-200 w-full font-medium  flex justify-start"
-              }
-              href={item.path}
-              variant="light"
-            >
-              {item.text}
-            </Button>
+          <Link
+            className={
+              pathname === item.path
+                ? "text-bold text-blue-400 font-bold min-w-[120px]"
+                : " text-gray-200 font-medium min-w-[120px] hover:text-white"
+            }
+            href={item.path}
+            onClick={() => setIsOpen(false)}
+          >
+            {item.text}
           </Link>
         </NavbarMenuItem>
       ))}
