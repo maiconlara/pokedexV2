@@ -67,8 +67,8 @@ const Navbar = () => {
                 color="primary"
                 className={
                   pathname === item.path
-                    ? "text-bold text-blue-400 font-bold"
-                    : " text-white"
+                    ? "text-bold text-blue-400 font-bold min-w-[120px]"
+                    : " text-gray-200 font-medium min-w-[120px]"
                 }
                 href={item.path}
                 variant="light"
@@ -91,7 +91,7 @@ const Navbar = () => {
                 className={
                   pathname === item.path
                     ? "text-bold text-blue-400 font-bold w-full flex justify-start"
-                    : " text-white w-full flex justify-start"
+                    : " text-gray-200 w-full font-medium  flex justify-start"
                 }
                 href={item.path}
                 variant="light"
