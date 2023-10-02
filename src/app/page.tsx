@@ -1,4 +1,3 @@
-
 import ButtonC from "./components/Button";
 import background from "./assets/background.webp";
 import backgroundMobile from "./assets/backgroundMobile.webp";

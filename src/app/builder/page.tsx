@@ -1,6 +1,3 @@
-"use client";
-
-
 const Builder = () => {
   return (
     <main className="flex max-w-screen max-h-screen flex-col items-center justify-center">
