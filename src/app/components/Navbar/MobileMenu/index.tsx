@@ -9,7 +9,7 @@ interface MobileMenuProps {
   setIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-const MobileMenu = ({ pathname, setIsOpen}: MobileMenuProps) => {
+const MobileMenu = ({ pathname, setIsOpen }: MobileMenuProps) => {
   return (
     <NavbarMenu className="bg-[#121326]/40 gap-5 pt-6">
       {routes.map((item) => (
@@ -20,8 +20,8 @@ const MobileMenu = ({ pathname, setIsOpen}: MobileMenuProps) => {
           <Link
             className={
               pathname === item.path
-                ? "text-bold text-blue-400 font-bold min-w-[120px]"
-                : " text-gray-200 font-medium min-w-[120px] hover:text-white"
+                ? "text-bold text-blue-400 font-bold uppercase text-sm min-w-[120px]"
+                : " text-gray-200 font-medium text-sm uppercase min-w-[120px] hover:text-white"
             }
             href={item.path}
             onClick={() => setIsOpen(false)}

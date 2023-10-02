@@ -52,8 +52,8 @@ const Navbar = () => {
             <Link
               className={
                 pathname === item.path
-                  ? "text-bold text-blue-400 font-bold min-w-[120px]"
-                  : " text-gray-200 font-medium min-w-[120px] hover:text-white"
+                  ? "text-bold text-blue-400 font-bold uppercase text-sm min-w-[120px]"
+                  : " text-gray-200 font-medium text-sm uppercase min-w-[120px] hover:text-white"
               }
               href={item.path}
             >
