@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
-
+import { routes } from "@/app/utils/routes";
 import pokemonLogo from "@/app/assets/pokemonLogo.webp";
 
 import {
@@ -12,31 +12,13 @@ import {
   NavbarItem,
   Button,
   NavbarMenuToggle,
-  NavbarMenu,
-  NavbarMenuItem,
 } from "@nextui-org/react";
 import Image from "next/image";
+import MobileMenu from "./MobileMenu";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const pathname = usePathname();
-  const routes = [
-    {
-      id: 1,
-      text: "Pokémons",
-      path: "/pokemons",
-    },
-    {
-      id: 2,
-      text: "Inicio",
-      path: "/",
-    },
-    {
-      id: 3,
-      text: "Team Builder",
-      path: "/builder",
-    },
-  ];
 
   return (
     <Nextbar
@@ -51,11 +33,14 @@ const Navbar = () => {
       <NavbarBrand className="gap-3">
         <Image
           src={pokemonLogo}
-          alt="Pokemin"
+          alt="Pokemon"
           className="max-w-[100px] max-h-[40px]"
         />
       </NavbarBrand>
-      <NavbarContent className="hidden md:flex gap-3 sm:gap-4 " justify="center">
+      <NavbarContent
+        className="hidden md:flex gap-3 sm:gap-4 "
+        justify="center"
+      >
         {routes.map((item) => (
           <NavbarItem
             key={item.id}
@@ -79,29 +64,7 @@ const Navbar = () => {
           </NavbarItem>
         ))}
       </NavbarContent>
-      <NavbarMenu className="bg-[#121326]/40">
-        {routes.map((item) => (
-          <NavbarMenuItem
-            key={item.id}
-            className={pathname === item.path ? "pointer-events-none" : ""}
-          >
-            <Link className="text-white" href={item.path}>
-              <Button
-                color="primary"
-                className={
-                  pathname === item.path
-                    ? "text-bold text-blue-400 font-bold w-full flex justify-start"
-                    : " text-gray-200 w-full font-medium  flex justify-start"
-                }
-                href={item.path}
-                variant="light"
-              >
-                {item.text}
-              </Button>
-            </Link>
-          </NavbarMenuItem>
-        ))}
-      </NavbarMenu>
+      <MobileMenu pathname={pathname}/>
     </Nextbar>
   );
 };
