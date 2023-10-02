@@ -20,7 +20,7 @@ export default function Home() {
         <img
           src={srcBackgroundMobile}
           alt=""
-          className="block md:hidden max-w-[614px] max-h-auto"
+          className="block md:hidden max-w-[550px] max-h-auto"
         ></img>
         <div className="flex flex-col items-center justify-center gap-3">
           <p>Bem-vindo ao PokeApp!</p>
