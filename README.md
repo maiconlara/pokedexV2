@@ -2,6 +2,11 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 ## Getting Started
 
+* **Home** - The first look in to the app, it'll show how to use the site;
+* **Pokemons** - A search page that user can search pokemons informations and filter it;
+* **Team Builder** - This page will able the user to generate random pokemon teams;
+
+
 First, run the development server:
 
 ```bash
