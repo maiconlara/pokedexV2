@@ -3,10 +3,9 @@
 import { Button } from "@nextui-org/react";
 
 
-const ButtonC = () => {
+const ButtonComponent = () => {
     return (
         <Button color="primary" variant="flat" className="uppercase">Começar</Button>
-
     )
 }
-export default ButtonC;
+export default ButtonComponent;
