@@ -21,9 +21,8 @@ const SearchInput = ({ placeHolder }: SearchInputProps) => {
           "placeholder:text-gray-600",
           "font-regular",
         ],
-        innerWrapper: "bg-transparent",
+        innerWrapper: "bg-transparent gap-2",
         inputWrapper: [
-          "pl-2",
           "shadow-xl",
           "bg-[#121326]",
           "!cursor-text",
