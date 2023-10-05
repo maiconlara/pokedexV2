@@ -7,10 +7,12 @@ import { SearchIcon } from "./SearchIcon";
 
 interface SearchInputProps {
   placeHolder: string;
+  setSearchText: React.Dispatch<React.SetStateAction<string>>;
 }
-const SearchInput = ({ placeHolder }: SearchInputProps) => {
+const SearchInput = ({ placeHolder, setSearchText }: SearchInputProps) => {
   return (
     <Input
+      onValueChange={(value) => setSearchText(value)}
       isClearable
       radius="lg"
       variant="bordered"

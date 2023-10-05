@@ -1,11 +1,13 @@
 "use client";
 
 import SearchInput from "../components/SearchInput";
+import { useState } from "react";
 const Pokemons = () => {
+  const [searchText, setSearchText] = useState("");
   return (
     <main className="relative flex max-w-screen flex-col items-center justify-center">
       <div className="absolute top-10 md:right-2 w-full md:w-auto px-6 md:px-4 ">
-        <SearchInput placeHolder="Pesquise um pokemon..." />
+        <SearchInput setSearchText={setSearchText} placeHolder="Pesquise um pokemon..." />
       </div>
 
       <div className="flex justify-center w-full min-h-[80vh] mt-20 pb-5">
@@ -16,8 +18,6 @@ const Pokemons = () => {
         <div className="w-full md:w-[200px] h-[30px] border border-gray-300/40"></div>
         <div className="w-full md:w-[200px] h-[30px] border border-gray-300/40"></div>
         <div className="w-full md:w-[200px] h-[30px] border border-gray-300/40"></div>
-      
-       
         </div>
 
         <div className="grid grid-cols-2 md:flex md:flex-wrap m-4  rounded-lg p-4 gap-4">
