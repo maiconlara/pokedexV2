@@ -4,7 +4,7 @@ import SearchInput from "../components/SearchInput";
 const Pokemons = () => {
   return (
     <main className="relative flex max-w-screen flex-col items-center justify-center">
-      <div className="absolute top-10 right-2">
+      <div className="absolute top-10 md:right-2 w-full md:w-auto px-6 md:px-4 ">
         <SearchInput placeHolder="Pesquise um pokemon..." />
       </div>
 
