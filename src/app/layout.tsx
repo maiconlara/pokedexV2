@@ -40,15 +40,6 @@ export default function RootLayout({
           <div className="flex h-full max-h-screen w-full flex-col bg-cover px-4 ">
             {children}
           </div>
-          <div className="relative">
-            <a
-              href="https://www.github.com/maiconlara"
-              target="_blank"
-              className="absolute right-0 bottom-0 p-2 text-xs hover:text-blue-300 transition-colors "
-            >
-              Feito Com 💙 por Maicon Lara
-            </a>
-          </div>
         </main>
       </body>
     </html>
