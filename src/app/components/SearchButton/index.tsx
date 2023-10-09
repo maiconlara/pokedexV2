@@ -2,9 +2,13 @@
 
 import { Button } from "@nextui-org/react";
 
-const SearchButton = () => {
+interface SearchButtonProps {
+  handlePokemonSearch: () => void;
+}
+
+const SearchButton = ({handlePokemonSearch}: SearchButtonProps) => {
   return (
-      <Button color="primary" variant="flat" className="uppercase max-w-[60px]">
+      <Button onClick={handlePokemonSearch} color="primary" variant="flat" className="uppercase max-w-[60px]">
         GO!
       </Button>
   );

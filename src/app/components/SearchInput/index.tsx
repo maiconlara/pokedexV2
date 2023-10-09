@@ -4,7 +4,6 @@ import React from "react";
 
 import { Input } from "@nextui-org/react";
 import { SearchIcon } from "./SearchIcon";
-import { getPokemonByName } from "../../api/api";
 
 interface SearchInputProps {
   placeHolder: string;
