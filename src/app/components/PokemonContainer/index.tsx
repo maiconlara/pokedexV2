@@ -9,6 +9,7 @@ const PokemonContainer = () => {
           <div className="w-full md:w-[200px] h-[30px] border border-gray-300/40"></div>
         </div>
 
+
         <div className="grid grid-cols-2 md:flex md:flex-wrap m-4  rounded-lg p-4 gap-4">
           <div className="w-full md:w-[150px] h-[150px] border border-gray-300/40"></div>
           <div className="w-full md:w-[150px] h-[150px] border border-gray-300/40"></div>
