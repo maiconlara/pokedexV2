@@ -24,7 +24,7 @@ export default function Home() {
         ></img>
         <div className="flex flex-col items-center justify-center gap-3">
           <p>Bem-vindo ao PokeApp!</p>
-          <ButtonComponent />
+          <ButtonComponent text="Começar"/>
         </div>
       </div>
     </main>
