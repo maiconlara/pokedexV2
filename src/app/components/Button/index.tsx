@@ -7,7 +7,7 @@ interface ButtonProps {
   text: string;
 }
 
-const ButtonComponent = ({ text }: ButtonProps) => {
+const PrimaryButton = ({ text }: ButtonProps) => {
   return (
     <Button
       as={Link}
@@ -20,4 +20,4 @@ const ButtonComponent = ({ text }: ButtonProps) => {
     </Button>
   );
 };
-export default ButtonComponent;
+export default PrimaryButton;
