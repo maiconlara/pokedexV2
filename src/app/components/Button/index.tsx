@@ -3,11 +3,21 @@
 import { Button } from "@nextui-org/react";
 import Link from "next/link";
 
-const ButtonComponent = () => {
+interface ButtonProps {
+  text: string;
+}
+
+const ButtonComponent = ({ text }: ButtonProps) => {
   return (
-      <Button as={Link} href={"/pokemons"} color="primary" variant="flat" className="uppercase">
-        Começar
-      </Button>
+    <Button
+      as={Link}
+      href={"/pokemons"}
+      color="primary"
+      variant="flat"
+      className="uppercase"
+    >
+      {text}
+    </Button>
   );
 };
 export default ButtonComponent;
