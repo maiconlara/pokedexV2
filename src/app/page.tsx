@@ -1,4 +1,4 @@
-import ButtonComponent from "./components/Button";
+import PrimaryButton from "./components/Button";
 import background from "./assets/background.webp";
 import backgroundMobile from "./assets/backgroundMobile.webp";
 import Image from "next/image";
@@ -24,7 +24,7 @@ export default function Home() {
         ></img>
         <div className="flex flex-col items-center justify-center gap-3">
           <p>Bem-vindo ao PokeApp!</p>
-          <ButtonComponent text="Começar"/>
+          <PrimaryButton text="Começar"/>
         </div>
       </div>
     </main>
