@@ -10,9 +10,10 @@
   },
   "dependencies": {
     "@nextui-org/react": "^2.1.13",
+    "@tanstack/react-query": "^5.17.9",
     "axios": "^1.5.1",
     "framer-motion": "^10.16.4",
-    "next": "latest",
+    "next": "^14.0.4",
     "react": "latest",
     "react-dom": "latest"
   },
