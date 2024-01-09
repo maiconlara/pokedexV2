@@ -1,6 +1,6 @@
-import PrimaryButton from "./components/Button";
-import background from "./assets/background.webp";
-import backgroundMobile from "./assets/backgroundMobile.webp";
+import PrimaryButton from "@/components/primary-button";
+import background from "@/assets/background.webp";
+import backgroundMobile from "@/assets/backgroundMobile.webp";
 import Image from "next/image";
 
 //TODO: Retornar ao next/image;

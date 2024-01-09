@@ -1,6 +1,6 @@
-import { types } from "@/app/components/TypeFilter/types";
+import { types } from "@/components/types";
 
-import TypeButton from "./TypeButton";
+import TypeButton from "./type-button";
 
 const TypeFilter = () => {
   return (

@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 import Link from "next/link";
-import { routes } from "@/app/utils/routes";
+import { routes } from "@/utils/routes";
 import { NavbarMenu, NavbarMenuItem } from "@nextui-org/react";
 
 interface MobileMenuProps {

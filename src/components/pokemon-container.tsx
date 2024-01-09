@@ -1,5 +1,5 @@
-import TypeFilter from "../TypeFilter";
-import PokemonCard from "../pokemon-card";
+import PokemonCard from "./pokemon-card";
+import TypeFilter from "./type-filter";
 
 const PokemonContainer = () => {
   return (

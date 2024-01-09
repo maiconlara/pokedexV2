@@ -1,5 +1,5 @@
 import axios from "axios";
-import {PokemonList, Pokemon} from "../interface/interface";
+import {PokemonList, Pokemon} from "@/interface/interface";
 
 export const api = axios.create({
     baseURL: "https://pokeapi.co/api/v2/",

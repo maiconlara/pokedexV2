@@ -3,7 +3,7 @@
 import React from "react";
 
 import { Input } from "@nextui-org/react";
-import { SearchIcon } from "./SearchIcon";
+import { SearchIcon } from "@/assets/search-icon";
 
 interface SearchInputProps {
   placeHolder: string;

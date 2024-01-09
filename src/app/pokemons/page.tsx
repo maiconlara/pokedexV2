@@ -1,11 +1,11 @@
 "use client";
 
-import SearchButton from "../components/SearchButton";
-import PokemonContainer from "../components/PokemonContainer";
-import SearchInput from "../components/SearchInput";
-import { getPokemonByName, getPokemonList } from "../api/api";
 import { useState, useEffect } from "react";
-import { PokemonList, Pokemon } from "../interface/interface";
+import { PokemonList, Pokemon } from "../../interface/interface";
+import SearchInput from "@/components/search-input";
+import SearchButton from "@/components/search-button";
+import PokemonContainer from "@/components/pokemon-container";
+import { getPokemonList } from "@/lib/api";
 const Pokemons = () => {
   const [searchText, setSearchText] = useState("");
   const [pokemonList, setPokemonList] = useState<Pokemon[]>();

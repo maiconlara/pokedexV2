@@ -2,8 +2,8 @@
 import React, { useState } from "react";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
-import { routes } from "@/app/utils/routes";
-import pokemonLogo from "@/app/assets/pokemonLogo.webp";
+import { routes } from "@/utils/routes";
+import pokemonLogo from "@/assets/pokemonLogo.webp";
 
 import {
   Navbar as Nextbar,
