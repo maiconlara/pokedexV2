@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { PokemonList, Pokemon } from "../../interface/interface";
+import { PokemonList, Pokemon } from "../../types/interface";
 import SearchInput from "@/components/search-input";
 import SearchButton from "@/components/search-button";
 import PokemonContainer from "@/components/pokemon-container";
