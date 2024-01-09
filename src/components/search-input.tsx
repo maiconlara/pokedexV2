@@ -16,15 +16,16 @@ const SearchInput = ({ placeHolder, setSearchText }: SearchInputProps) => {
       isClearable
       radius="lg"
       variant="bordered"
+      size="sm"
       classNames={{
         input: [
-          "bg-black",
           "text-gray-200",
           "placeholder:text-gray-600",
           "font-regular",
         ],
         innerWrapper: "bg-transparent gap-2",
         inputWrapper: [
+         
           "shadow-xl",
           "bg-[#121326]",
           "!cursor-text",

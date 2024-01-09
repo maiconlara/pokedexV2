@@ -8,7 +8,7 @@ interface SearchButtonProps {
 
 const SearchButton = ({handlePokemonSearch}: SearchButtonProps) => {
   return (
-      <Button onClick={handlePokemonSearch} color="primary" variant="flat" className="uppercase max-w-[60px]">
+      <Button onClick={handlePokemonSearch} color="primary" variant="flat" className="uppercase max-w-[60px] w-auto">
         GO!
       </Button>
   );
