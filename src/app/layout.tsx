@@ -2,6 +2,7 @@ import Navbar from "@/components/Navbar";
 import "./globals.css";
 import type { Metadata } from "next";
 import { Inter, Montserrat } from "next/font/google";
+import Providers from "./providers";
 
 const inter = Inter({ subsets: ["latin"] });
 const montserratRegular = Montserrat({
@@ -35,12 +36,14 @@ export default function RootLayout({
       <body
         className={`${inter.className} ${montserratRegular.variable} ${montserratMedium.variable} ${montserratBold.variable} text-white text-lg leading-relaxed bg-[#1C1D3A] `}
       >
-        <main className="flex flex-col w-screen h-screen overflow-y-auto overflow-x-hidden ">
-          <Navbar />
-          <div className="flex h-full max-h-screen w-full flex-col bg-cover px-4 ">
-            {children}
-          </div>
-        </main>
+        <Providers>
+          <main className="flex flex-col w-screen h-screen overflow-y-auto overflow-x-hidden ">
+            <Navbar />
+            <div className="flex h-full max-h-screen w-full flex-col bg-cover px-4 ">
+              {children}
+            </div>
+          </main>
+        </Providers>
       </body>
     </html>
   );
