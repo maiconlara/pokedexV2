@@ -7,25 +7,24 @@ import { SearchIcon } from "@/assets/search-icon";
 
 interface SearchInputProps {
   placeHolder: string;
-  setSearchText: React.Dispatch<React.SetStateAction<string>>;
 }
-const SearchInput = ({ placeHolder, setSearchText }: SearchInputProps) => {
+const SearchInput = ({ placeHolder }: SearchInputProps) => {
   return (
     <Input
-      onValueChange={(value) => setSearchText(value)}
-      isClearable
+      // onValueChange={(value) => ()}
       radius="lg"
       variant="bordered"
-      size="sm"
+      className="w-full"
       classNames={{
         input: [
           "text-gray-200",
           "placeholder:text-gray-600",
-          "font-regular",
+          "font-regular, w-full",
         ],
         innerWrapper: "bg-transparent gap-2",
         inputWrapper: [
-         
+          "w-full",
+          "max-h-[40px]",
           "shadow-xl",
           "bg-[#121326]",
           "!cursor-text",
