@@ -9,9 +9,12 @@ interface ProvidersProps {
   children: ReactNode;
 }
 
+const MINUTE = 60 * 1000;
+
 const queryClient = new QueryClient({
   defaultOptions: {
     queries: {
+      gcTime: 20 * MINUTE,
       staleTime: Infinity,
       retry: false,
     },
