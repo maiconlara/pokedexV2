@@ -1,17 +1,33 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 
 import { Input } from "@nextui-org/react";
 import { SearchIcon } from "@/assets/search-icon";
+import { useQueryState } from "nuqs";
+import useDebounce from "@/utils/hooks/useDebounce";
 
 interface SearchInputProps {
   placeHolder: string;
 }
+
 const SearchInput = ({ placeHolder }: SearchInputProps) => {
+  const setQueryParam = useQueryState("query")[1];
+  const [query, setQuery] = useState("");
+  const searchLengthRule = query.length > 0 && query.length < 3;
+
+  useDebounce(
+    () => {
+      if (searchLengthRule) return;
+      setQueryParam(query);
+    },
+    1500,
+    [query]
+  );
+
   return (
     <Input
-      // onValueChange={(value) => ()}
+      onValueChange={(value) => setQuery(value)}
       radius="lg"
       variant="bordered"
       className="w-full"
