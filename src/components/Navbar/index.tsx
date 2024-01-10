@@ -23,17 +23,17 @@ const Navbar = () => {
   return (
     <Nextbar
       position="static"
-      className="bg-[#121326] lg:px-32"
+      className="bg-[#121326]"
       onMenuOpenChange={setIsOpen}
       isMenuOpen={isOpen}
-      maxWidth="full"
+      maxWidth="2xl"
       
     >
       <NavbarMenuToggle
         aria-label={isOpen ? "Close menu" : "Open menu"}
         className="sm:hidden absolute right-4"
       />
-      <NavbarBrand className="gap-3 ">
+      <NavbarBrand className="gap-3">
         <Image
           src={pokemonLogo}
           alt="Pokemon"
