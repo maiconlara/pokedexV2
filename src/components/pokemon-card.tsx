@@ -1,9 +1,12 @@
-const PokemonCard = () => {
+
+interface PokemonCardProps {
+  name: string
+}
+
+const PokemonCard = ({name}: PokemonCardProps) => {
   return (
-    <div className="w-full md:w-[200px] h-[150px] lg:w-[230px] xl:w-[250px] border border-gray-300/40 rounded-2xl bg-sky-300/40">
-
-
-
+    <div className="w-full h-[150px] md:w-[180px] lg:w-[200px] xl:w-[210px] 2xl:w-[220px] border border-gray-300/40 rounded-2xl bg-sky-300/40">
+      {name}
     </div>
   );
 };
