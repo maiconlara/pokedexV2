@@ -1,7 +1,6 @@
 import { useGetPokemonData } from "@/utils/hooks/useGetPokemonData";
 // import Image from "next/image";
 import { Skeleton, Image } from "@nextui-org/react";
-import fallBackImage from "@/app/icon.png";
 import { handleTypeColors } from "@/utils/handleTypeColor";
 interface PokemonCardProps {
   id: string;
@@ -13,7 +12,12 @@ const PokemonCard = ({ id }: PokemonCardProps) => {
   const secondType = data?.types[1]?.type.name || "";
   const name = data?.name || "";
   const formattedName = name.charAt(0).toUpperCase() + name.slice(1);
+  const officialArtwork =
+    data?.sprites.other["official-artwork"].front_default || "";
+
   const typeColor = handleTypeColors(firstType);
+
+
   return (
     <Skeleton
       isLoaded={!isLoading}
@@ -27,7 +31,7 @@ const PokemonCard = ({ id }: PokemonCardProps) => {
         style={typeColor}
         className="flex flex-col w-full items-center justify-center h-[150px] md:w-[180px] lg:w-[200px] xl:w-[290px] 2xl:w-[220px] rounded-2xl"
       >
-        <div className="flex flex-row w-full justify-between px-5">
+        <div className="flex flex-row w-full justify-between px-5 pt-6">
           <p>{formattedName}</p>
           <p>{data?.id}</p>
         </div>
@@ -42,11 +46,11 @@ const PokemonCard = ({ id }: PokemonCardProps) => {
             className="cursor-pointer rounded-2xl"
             loading="lazy"
             isZoomed
-            src={data?.sprites.other["official-artwork"].front_default || ""}
+            src={officialArtwork}
             alt={data?.name}
-            width={100}
+            width={130}
             disableSkeleton
-            height={100}
+            height={130}
           />
         </div>
       </div>
