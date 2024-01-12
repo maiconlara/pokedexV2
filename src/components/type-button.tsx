@@ -1,3 +1,5 @@
+"use client";
+
 import Image from "next/image";
 import { useQueryState } from "nuqs";
 import { useTranslation } from "next-i18next";
@@ -10,6 +12,7 @@ const TypeButton = ({ type, title }: TypeButtonProps) => {
   const { t } = useTranslation();
 
   const setTypeParam = useQueryState("type")[1];
+
   const handleTypeParam = () => {
     setTypeParam(title);
   };

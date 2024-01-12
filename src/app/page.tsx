@@ -23,7 +23,7 @@ export default function Home() {
           className="block md:hidden max-w-[550px] max-h-auto"
         ></img>
         <div className="flex flex-col items-center justify-center gap-3">
-          <p>Bem-vindo ao PokeApp!</p>
+          <p>Bem-vindo ao Pokeapp!</p>
           <PrimaryButton text="Começar"/>
         </div>
       </div>

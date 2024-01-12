@@ -22,7 +22,7 @@ const montserratBold = Montserrat({
 });
 
 export const metadata: Metadata = {
-  title: "PokeApp",
+  title: "Pokeapp",
   description: "Feito Com 💙 por Maicon Lara",
 };
 
