@@ -1,7 +1,10 @@
+"use client";
+
 import PokemonCard from "./pokemon-card";
+
 import { useGetPokemons } from "@/utils/hooks/useGetPokemons";
-
-
+import { useQueryState } from "nuqs";
+import {useEffect} from "react"
 
 interface FormattedPokemons {
   id: string;
@@ -9,11 +12,17 @@ interface FormattedPokemons {
 
 const PokemonList = () => {
   const { data: { results: pokemons = [] } = {} } = useGetPokemons();
-  
-  const formattedPokemons: FormattedPokemons[] = pokemons.map(pokemon => {
-    const urlParts = pokemon.url.split('/');
+
+  const [type] = useQueryState("type");
+
+  useEffect(() => {
+    console.log("type: ", type)
+  }, [type])
+
+  const formattedPokemons: FormattedPokemons[] = pokemons.map((pokemon) => {
+    const urlParts = pokemon.url.split("/");
     const id = urlParts[urlParts.length - 2]; // O ID está na penúltima parte da URL
-  
+
     return {
       id,
     };
