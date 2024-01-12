@@ -32,7 +32,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
+    <html lang="pt-br">
       <body
         className={`${inter.className} ${montserratRegular.variable} ${montserratMedium.variable} ${montserratBold.variable} text-white text-lg leading-relaxed bg-[#1C1D3A] `}
       >

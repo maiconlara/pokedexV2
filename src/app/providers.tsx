@@ -1,8 +1,9 @@
 "use client";
 // Review this use client to ensure if it's really necessary
 
-
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { I18nextProvider } from "react-i18next";
+import i18n from "@/lang";
 import { ReactNode } from "react";
 
 interface ProvidersProps {
@@ -22,9 +23,10 @@ const queryClient = new QueryClient({
 });
 
 const Providers = ({ children }: ProvidersProps) => {
-    return (
-
-        <QueryClientProvider client={queryClient}>{children}</QueryClientProvider>
-    )
+  return (
+    <I18nextProvider i18n={i18n} defaultNS={"translation"}>
+      <QueryClientProvider client={queryClient}>{children}</QueryClientProvider>
+    </I18nextProvider>
+  );
 };
 export default Providers;
