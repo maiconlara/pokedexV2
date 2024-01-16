@@ -15,10 +15,10 @@ const PokemonCard = ({ id }: PokemonCardProps) => {
   const formattedName = name.charAt(0).toUpperCase() + name.slice(1);
   const formattedId = data?.id.toString().padStart(3, "0") || "";
 
-
+  const gameArtwork = data?.sprites.front_default || "";
   const officialArtwork =
     data?.sprites.other["official-artwork"].front_default || "";
-
+  const pokemonImage = officialArtwork ? officialArtwork : gameArtwork;
   const typeColor = handlePokemonCardColor(firstType);
 
 
@@ -49,7 +49,7 @@ const PokemonCard = ({ id }: PokemonCardProps) => {
           <Image
             className="cursor-pointer rounded-2xl"
             loading="lazy"
-            src={officialArtwork}
+            src={pokemonImage}
             alt={data?.name}
             width={120}
             disableSkeleton
