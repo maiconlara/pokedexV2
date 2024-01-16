@@ -3,6 +3,7 @@ import "./globals.css";
 import type { Metadata } from "next";
 import { Inter, Montserrat } from "next/font/google";
 import Providers from "./providers";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 const inter = Inter({ subsets: ["latin"] });
 const montserratRegular = Montserrat({
@@ -38,6 +39,7 @@ export default function RootLayout({
       >
         <Providers>
           <main className="flex flex-col w-screen h-screen overflow-y-auto overflow-x-hidden ">
+            <SpeedInsights />
             <Navbar />
             <div className="flex h-full max-h-screen w-full flex-col bg-cover px-4 ">
               {children}
