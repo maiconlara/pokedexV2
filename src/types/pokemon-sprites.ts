@@ -9,9 +9,10 @@ interface DreamArtwork {
 
 interface Other {
   "official-artwork": OfficialArtwork;
-  dream_world: DreamArtwork;
 }
 
 export interface Sprites {
+  front_default: string;
+
   other: Other;
 }
