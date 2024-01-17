@@ -5,6 +5,7 @@ interface PokemonSlot {
   slot: number;
 }
 
-export interface PokemonList {
+export interface PokemonTypeList {
+  name: string;
   pokemon: PokemonSlot[];
 }
