@@ -27,7 +27,7 @@ export const handlePokemonCardColor = (type: string) => {
     ground: {
         backgroundColor: "#e0c068",
     },
-    pyschic: {
+    psychic: {
         backgroundColor: "#f85888",
     },
     rock: {

@@ -36,7 +36,7 @@ export const handleTypeColor = (type: string) => {
           backgroundColor: "#ad985e",
            border: "1px solid #927d44",
       },
-      pyschic: {
+      psychic: {
           backgroundColor: "#f85888",
            border: "1px solid #2c2c31",
       },
