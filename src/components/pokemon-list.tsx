@@ -3,25 +3,28 @@
 import PokemonCard from "./pokemon-card";
 
 import { useGetPokemons } from "@/utils/hooks/useGetPokemons";
+import { useGetPokemonsType } from "@/utils/hooks/useGetPokemonsType";
 import { useQueryState } from "nuqs";
-import {useEffect} from "react"
+import { useEffect } from "react";
 
 interface FormattedPokemons {
   id: string;
 }
 
 const PokemonList = () => {
-  const { data: { results: pokemons = [] } = {} } = useGetPokemons();
-
   const [type] = useQueryState("type");
+  const { data: { results: pokemons = [] } = {} } = useGetPokemons();
+  const { data, refetch, isRefetching } = useGetPokemonsType(type || "");
 
   useEffect(() => {
-    console.log("type: ", type)
-  }, [type])
+    refetch();
+  }, [type]);
+
+
 
   const formattedPokemons: FormattedPokemons[] = pokemons.map((pokemon) => {
     const urlParts = pokemon.url.split("/");
-    const id = urlParts[urlParts.length - 2]; // O ID está na penúltima parte da URL
+    const id = urlParts[urlParts.length - 2];
 
     return {
       id,
