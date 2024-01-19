@@ -14,13 +14,19 @@ interface FormattedPokemons {
 const PokemonList = () => {
   const [type] = useQueryState("type");
   const { data: { results: pokemons = [] } = {} } = useGetPokemons();
-  const { data, refetch, isRefetching } = useGetPokemonsType(type || "");
+  const {
+    data: { pokemon: pokemonsType = [] } = {},
+    refetch,
+    isRefetching,
+    isLoading,
+  } = useGetPokemonsType(type || "");
 
   useEffect(() => {
-    refetch();
+    if (type === "all") return;
+    if (type) {
+      refetch();
+    }
   }, [type]);
-
-
 
   const formattedPokemons: FormattedPokemons[] = pokemons.map((pokemon) => {
     const urlParts = pokemon.url.split("/");
@@ -31,11 +37,28 @@ const PokemonList = () => {
     };
   });
 
+  const formattedPokemonsType: FormattedPokemons[] = pokemonsType.map(
+    (pokemonType) => {
+      const urlParts = pokemonType.pokemon.url.split("/");
+      const id = urlParts[urlParts.length - 2];
+
+      return {
+        id,
+      };
+    }
+  );
+
+  const pokemonListWithoutType = type === "all" || type === " ";
+
+  const whichPokemonListToShow = pokemonListWithoutType
+    ? formattedPokemons
+    : formattedPokemonsType;
   return (
     <div className="grid gap-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 2xl:grid-cols-5 md:w-[376px] lg:w-[632px] xl:w-[902px] 2xl:w-[1164px]  ">
-      {formattedPokemons.map((pokemon) => {
-        return <PokemonCard key={pokemon.id} id={pokemon.id} />;
-      })}
+      {
+          whichPokemonListToShow.map((pokemon: { id: string }) => {
+            return <PokemonCard key={pokemon.id} id={pokemon.id} />;
+          })}
     </div>
   );
 };
