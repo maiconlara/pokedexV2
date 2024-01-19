@@ -6,6 +6,5 @@ interface PokemonSlot {
 }
 
 export interface PokemonTypeList {
-  name: string;
   pokemon: PokemonSlot[];
 }
