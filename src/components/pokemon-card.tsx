@@ -3,12 +3,11 @@ import { useGetPokemonData } from "@/utils/hooks/useGetPokemonData";
 import { Skeleton, Image } from "@nextui-org/react";
 import { handlePokemonCardColor } from "@/utils/handlePokemonCardColor";
 import PokemonType from "./pokemon-type";
-import { memo } from "react";
 interface PokemonCardProps {
   id: string;
 }
 
-const PokemonCard = memo(({ id }: PokemonCardProps) => {
+const PokemonCard = ({ id }: PokemonCardProps) => {
   console.log("Rendering PokemonCard for id:", id);
   const { data, isLoading } = useGetPokemonData(id);
   const firstType = data?.types[0]?.type.name || "";
@@ -60,5 +59,5 @@ const PokemonCard = memo(({ id }: PokemonCardProps) => {
       </div>
     </Skeleton>
   );
-});
+};
 export default PokemonCard;
