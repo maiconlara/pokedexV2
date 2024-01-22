@@ -61,23 +61,23 @@ export const handleTypeColor = (type: string) => {
            border: "1px solid #3e3154",
       },
       dark: {
-          backgroundColor: "#705848",
-           border: "1px solid #2c2c31",
+          backgroundColor: "#544439",
+           border: "1px solid #41332a",
       },
       steel: {
-          backgroundColor: "#b8b8d0",
-           border: "1px solid #2c2c31",
+          backgroundColor: "#afafbd",
+           border: "1px solid #79798d",
       },
       fairy: {
-          backgroundColor: "#ee99ac",
-           border: "1px solid #2c2c31",
+          backgroundColor: "#d194a2",
+           border: "1px solid #9e6875",
       },
     };
   
     return (
       pokemonTypes[type] || {
         backgroundColor: "#a8a878",
-         border: "1px solid #2c2c31",
+         border: "1px solid #6d6d4e",
       }
     );
   };
