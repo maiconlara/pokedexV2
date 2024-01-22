@@ -9,16 +9,16 @@ export const handleTypeColor = (type: string) => {
         border: "1px solid #9c531f",
       },
       fighting: {
-        backgroundColor: "#c03028",
-        border: "1px solid #2c2c31",
+        backgroundColor: "#992f29",
+        border: "1px solid #6d1915",
       },
       water: {
         backgroundColor: "#6281cc",
         border: "1px solid #445e9c",
       },
       flying: {
-        backgroundColor: "#a890f0",
-        border: "1px solid #2c2c31",
+        backgroundColor: "#9887cc",
+        border: "1px solid #5c4b8f",
       },
       grass: {
         backgroundColor: "#58913c",
