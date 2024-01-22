@@ -37,12 +37,12 @@ export const handleTypeColor = (type: string) => {
            border: "1px solid #927d44",
       },
       psychic: {
-          backgroundColor: "#f85888",
-           border: "1px solid #2c2c31",
+          backgroundColor: "#db5c82",
+           border: "1px solid #a33153",
       },
       rock: {
-          backgroundColor: "#b8a038",
-           border: "1px solid #2c2c31",
+          backgroundColor: "#948235",
+           border: "1px solid #736321",
       },
       ice: {
           backgroundColor: "#98d8d8",
@@ -53,12 +53,12 @@ export const handleTypeColor = (type: string) => {
            border: "1px solid #6d7815",
       },
       dragon: {
-          backgroundColor: "#7038f8",
-           border: "1px solid #2c2c31",
+          backgroundColor: "#6d40db",
+           border: "1px solid #452692",
       },
       ghost: {
-          backgroundColor: "#705898",
-           border: "1px solid #2c2c31",
+          backgroundColor: "#5c4c78",
+           border: "1px solid #3e3154",
       },
       dark: {
           backgroundColor: "#705848",
