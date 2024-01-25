@@ -35,6 +35,8 @@ const Navbar = () => {
       />
       <NavbarBrand className="gap-3">
         <Image
+          width={100}
+          height={40}
           src={pokemonLogo}
           alt="Pokemon"
           className="max-w-[100px] max-h-[40px]"
