@@ -45,8 +45,8 @@ export const handleTypeColor = (type: string) => {
            border: "1px solid #736321",
       },
       ice: {
-          backgroundColor: "#98d8d8",
-           border: "1px solid #2c2c31",
+          backgroundColor: "#93c2c2",
+           border: "1px solid #5c8b8b",
   },
       bug: {
           backgroundColor: "#8a9623",
