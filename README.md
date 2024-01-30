@@ -9,6 +9,8 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 This web application contains:
 
 * **Home** - The first look in to the app, it'll introduct the application;
+* **Pokemons** - A list page that will show pokemons and some filters;
+* **Team Builder** - This is a page that allows the user to select his team of favorite pokemons;
 
 ## 🛠️ Made with
 
