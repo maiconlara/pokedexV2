@@ -16,7 +16,10 @@ This web application contains:
 
 This web application was made with:
 
-
+* **React Js** - JS Library;
+* **TypeScript** - Programming Language;
+* **Next Js** - React Framework;
+* **TailwindCSS** - CSS Library;
 
 
 <p align="center">Made with 🤍 by Maicon Lara</p>
