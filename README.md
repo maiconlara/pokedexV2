@@ -20,6 +20,10 @@ This web application was made with:
 * **TypeScript** - Programming Language;
 * **Next Js** - React Framework;
 * **TailwindCSS** - CSS Library;
+* **Next UI** - Component Library;
+* **Axios** - HTTP Client;
+* **Nuqs** - Search Params State Manager;
+* **React Query** - Data Fetching;
 
 
 <p align="center">Made with 🤍 by Maicon Lara</p>
