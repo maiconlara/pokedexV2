@@ -24,6 +24,7 @@ This web application was made with:
 * **Axios** - HTTP Client;
 * **Nuqs** - Search Params State Manager;
 * **React Query** - Data Fetching;
+* **Vercel** - Deploy;
 
 
 <p align="center">Made with 🤍 by Maicon Lara</p>
