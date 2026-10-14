@@ -4,7 +4,7 @@ import React, { useState } from "react";
 
 import { Input } from "@nextui-org/react";
 import { SearchIcon } from "@/assets/search-icon";
-import { useQueryState } from "nuqs";
+import { parseAsInteger, parseAsString, useQueryStates } from "nuqs";
 import useDebounce from "@/utils/hooks/useDebounce";
 
 interface SearchInputProps {
@@ -12,22 +12,29 @@ interface SearchInputProps {
 }
 
 const SearchInput = ({ placeHolder }: SearchInputProps) => {
-  const setQueryParam = useQueryState("query")[1];
-  const [query, setQuery] = useState("");
-  const searchLengthRule = query.length > 0 && query.length < 3;
+  const [params, setParams] = useQueryStates({
+    query: parseAsString,
+    page: parseAsInteger,
+  });
+  const [query, setQuery] = useState(params.query ?? "");
 
   useDebounce(
     () => {
-      if (searchLengthRule) return;
-      setQueryParam(query);
+      const trimmedQuery = query.trim();
+      if (trimmedQuery === (params.query ?? "")) return;
+      setParams({ query: trimmedQuery || null, page: null });
     },
-    1500,
+    500,
     [query]
   );
 
   return (
     <Input
-      onValueChange={(value) => setQuery(value)}
+      value={query}
+      onValueChange={setQuery}
+      isClearable
+      onClear={() => setQuery("")}
+      aria-label="Buscar pokémon"
       radius="lg"
       variant="bordered"
       className="w-full"

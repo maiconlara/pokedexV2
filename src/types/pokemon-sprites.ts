@@ -1,10 +1,6 @@
 interface OfficialArtwork {
-  front_default: string;
-  front_shiny: string;
-}
-
-interface DreamArtwork {
-  front_default: string;
+  front_default: string | null;
+  front_shiny: string | null;
 }
 
 interface Other {
@@ -12,7 +8,9 @@ interface Other {
 }
 
 export interface Sprites {
-  front_default: string;
-
+  front_default: string | null;
+  front_shiny: string | null;
+  back_default: string | null;
+  back_shiny: string | null;
   other: Other;
 }

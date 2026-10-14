@@ -6,3 +6,8 @@ export interface PokemonListResponse {
   previous: string;
   results: NamedAPIResource[];
 }
+
+export interface PokemonEntry {
+  id: number;
+  name: string;
+}
