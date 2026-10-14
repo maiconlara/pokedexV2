@@ -2,6 +2,8 @@
 // Review this use client to ensure if it's really necessary
 
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { NextUIProvider } from "@nextui-org/react";
+import { useRouter } from "next/navigation";
 import { I18nextProvider } from "react-i18next";
 import i18n from "@/lang";
 import { ReactNode } from "react";
@@ -23,10 +25,16 @@ const queryClient = new QueryClient({
 });
 
 const Providers = ({ children }: ProvidersProps) => {
+  const router = useRouter();
+
   return (
-    <I18nextProvider i18n={i18n} defaultNS={"translation"}>
-      <QueryClientProvider client={queryClient}>{children}</QueryClientProvider>
-    </I18nextProvider>
+    <NextUIProvider navigate={router.push}>
+      <I18nextProvider i18n={i18n} defaultNS={"translation"}>
+        <QueryClientProvider client={queryClient}>
+          {children}
+        </QueryClientProvider>
+      </I18nextProvider>
+    </NextUIProvider>
   );
 };
 export default Providers;
