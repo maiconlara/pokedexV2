@@ -17,6 +17,44 @@
     "dark": "Sombrio",
     "steel": "Ferro",
     "fairy": "Fada",
-    "all" : "Todos"
-
+    "all" : "Todos",
+    "stats": {
+        "hp": "HP",
+        "attack": "Ataque",
+        "defense": "Defesa",
+        "special-attack": "Atq. Esp.",
+        "special-defense": "Def. Esp.",
+        "speed": "Velocidade"
+    },
+    "growthRate": {
+        "slow": "Lento",
+        "medium": "Médio",
+        "fast": "Rápido",
+        "medium-slow": "Médio-lento",
+        "slow-then-very-fast": "Errático",
+        "fast-then-very-slow": "Flutuante"
+    },
+    "eggGroup": {
+        "monster": "Monstro",
+        "water1": "Água 1",
+        "water2": "Água 2",
+        "water3": "Água 3",
+        "bug": "Inseto",
+        "flying": "Voador",
+        "ground": "Campo",
+        "fairy": "Fada",
+        "plant": "Planta",
+        "humanshape": "Humanoide",
+        "mineral": "Mineral",
+        "indeterminate": "Amorfo",
+        "ditto": "Ditto",
+        "dragon": "Dragão",
+        "no-eggs": "Não descoberto"
+    },
+    "moveMethod": {
+        "level-up": "Por nível",
+        "machine": "Por TM/TR",
+        "egg": "Por ovo",
+        "tutor": "Por tutor"
+    }
 }
