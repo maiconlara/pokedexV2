@@ -1,11 +1,12 @@
 "use client";
 
 import Link from "next/link";
-import { Button, Image } from "@nextui-org/react";
+import { Button } from "@nextui-org/react";
 import { TEAM_SIZE } from "@/lib/team-db";
 import { Team } from "@/types/team";
 import { useGetPokemons } from "@/utils/hooks/useGetPokemons";
-import { formatPokemonName, getArtworkUrl } from "@/utils/pokemonFormat";
+import { formatPokemonName } from "@/utils/pokemonFormat";
+import PokemonArtwork from "../pokemon-artwork";
 
 interface TeamCardProps {
   team: Team;
@@ -42,12 +43,10 @@ const TeamCard = ({ team, onDelete }: TeamCardProps) => {
               title={getName(pokemonId)}
               className="flex aspect-square items-center justify-center rounded-xl bg-white/5"
             >
-              <Image
-                src={getArtworkUrl(pokemonId)}
+              <PokemonArtwork
+                pokemonId={pokemonId}
                 alt={getName(pokemonId)}
-                width={56}
-                height={56}
-                disableSkeleton
+                size={56}
               />
             </div>
           ) : (

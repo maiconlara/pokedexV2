@@ -1,18 +1,14 @@
 "use client";
 
-import { Image } from "@nextui-org/react";
-import { useGetPokemonData } from "@/utils/hooks/useGetPokemonData";
 import { useGetPokemons } from "@/utils/hooks/useGetPokemons";
 import { handlePokemonCardColor } from "@/utils/handlePokemonCardColor";
-import {
-  formatPokemonName,
-  formatPokemonNumber,
-  getArtworkUrl,
-} from "@/utils/pokemonFormat";
+import { formatPokemonName, formatPokemonNumber } from "@/utils/pokemonFormat";
 import PokemonType from "../pokemon-type";
+import PokemonArtwork from "../pokemon-artwork";
 
 interface TeamPokemonSlotProps {
   pokemonId: number;
+  types: string[];
   onRemove: () => void;
 }
 
@@ -23,20 +19,19 @@ export const EmptyTeamSlot = () => (
   </div>
 );
 
-const TeamPokemonSlot = ({ pokemonId, onRemove }: TeamPokemonSlotProps) => {
+const TeamPokemonSlot = ({
+  pokemonId,
+  types,
+  onRemove,
+}: TeamPokemonSlotProps) => {
   const { data: pokemons } = useGetPokemons();
-  const { data } = useGetPokemonData(pokemonId);
-
-  const slug =
-    pokemons?.find((pokemon) => pokemon.id === pokemonId)?.name ??
-    data?.species.name ??
-    "";
-  const name = formatPokemonName(slug);
-  const types = data?.types.map((item) => item.type.name) ?? [];
+  const name = formatPokemonName(
+    pokemons?.find((pokemon) => pokemon.id === pokemonId)?.name ?? ""
+  );
 
   return (
     <div
-      style={data ? handlePokemonCardColor(types[0] ?? "") : undefined}
+      style={types.length > 0 ? handlePokemonCardColor(types[0]) : undefined}
       className="relative flex min-h-[188px] flex-col items-center gap-1 rounded-2xl bg-white/10 p-3 pt-4 text-center"
     >
       <button
@@ -47,13 +42,7 @@ const TeamPokemonSlot = ({ pokemonId, onRemove }: TeamPokemonSlotProps) => {
       >
         ×
       </button>
-      <Image
-        src={getArtworkUrl(pokemonId)}
-        alt={name}
-        width={88}
-        height={88}
-        disableSkeleton
-      />
+      <PokemonArtwork pokemonId={pokemonId} alt={name} size={88} />
       <span className="text-xs opacity-80">{formatPokemonNumber(pokemonId)}</span>
       <span className="font-bold text-sm leading-tight">{name}</span>
       <div className="flex w-full flex-col gap-1 px-1 text-xs font-medium">

@@ -12,6 +12,7 @@ export interface TypeDamageRelations {
 }
 
 export interface PokemonTypeList {
+  name: string;
   damage_relations: TypeDamageRelations;
   pokemon: PokemonSlot[];
 }

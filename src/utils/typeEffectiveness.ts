@@ -23,7 +23,7 @@ export interface TypeCoverage {
   immune: number;
 }
 
-const ATTACKING_TYPES = types
+export const POKEMON_TYPE_NAMES = types
   .map((type) => type.name)
   .filter((name) => name !== "all");
 
@@ -46,7 +46,7 @@ const getDamageFactor = (relations: TypeDamageRelations, type: string) => {
 export const getDefensiveMultipliers = (
   relations: TypeDamageRelations[]
 ): TypeMultiplier[] =>
-  ATTACKING_TYPES.map((type) => ({
+  POKEMON_TYPE_NAMES.map((type) => ({
     type,
     multiplier: relations.reduce(
       (total, relation) => total * getDamageFactor(relation, type),
@@ -70,7 +70,7 @@ export const getTeamCoverage = (
     multipliers: getDefensiveMultipliers(member.relations),
   }));
 
-  return ATTACKING_TYPES.map((type, typeIndex) => {
+  return POKEMON_TYPE_NAMES.map((type, typeIndex) => {
     const entries = membersMultipliers.map(({ pokemonId, multipliers }) => ({
       pokemonId,
       multiplier: multipliers[typeIndex].multiplier,

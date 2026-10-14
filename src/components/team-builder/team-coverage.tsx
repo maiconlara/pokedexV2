@@ -1,11 +1,12 @@
 "use client";
 
-import { Button, Image, Skeleton } from "@nextui-org/react";
+import { Button, Skeleton } from "@nextui-org/react";
 import { useTranslation } from "next-i18next";
 import { useGetPokemons } from "@/utils/hooks/useGetPokemons";
 import { useTeamCoverage } from "@/utils/hooks/useTeamCoverage";
 import { TypeCoverage } from "@/utils/typeEffectiveness";
-import { formatPokemonName, getArtworkUrl } from "@/utils/pokemonFormat";
+import { formatPokemonName } from "@/utils/pokemonFormat";
+import PokemonArtwork from "../pokemon-artwork";
 import PokemonType from "../pokemon-type";
 
 interface TeamCoverageProps {
@@ -102,12 +103,10 @@ const TeamCoverage = ({ pokemonIds }: TeamCoverageProps) => {
           title={`${name} (${multiplier}×)`}
           className="relative"
         >
-          <Image
-            src={getArtworkUrl(pokemonId)}
+          <PokemonArtwork
+            pokemonId={pokemonId}
             alt={`${name}, recebe ${multiplier}× de dano`}
-            width={28}
-            height={28}
-            disableSkeleton
+            size={28}
           />
           {multiplier >= 4 && (
             <span className="absolute -bottom-1 -right-1 z-20 rounded bg-red-500 px-0.5 text-[9px] font-bold leading-tight text-white">

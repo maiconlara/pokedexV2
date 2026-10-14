@@ -2,7 +2,7 @@
 
 import { Fragment, useMemo } from "react";
 import Link from "next/link";
-import { Image, Skeleton } from "@nextui-org/react";
+import { Skeleton } from "@nextui-org/react";
 import { TFunction } from "i18next";
 import { useTranslation } from "next-i18next";
 import { EvolutionDetail } from "@/types/evolution-chain";
@@ -12,9 +12,9 @@ import {
   formatPokemonName,
   formatPokemonNumber,
   formatSlug,
-  getArtworkUrl,
 } from "@/utils/pokemonFormat";
 import { ChevronIcon } from "@/assets/chevron-icon";
+import PokemonArtwork from "../pokemon-artwork";
 
 interface PokemonEvolutionChainProps {
   chainUrl: string | undefined;
@@ -115,12 +115,10 @@ const PokemonEvolutionChain = ({
                     isCurrent ? "bg-white/10 ring-2 ring-blue-400" : "bg-white/5"
                   }`}
                 >
-                  <Image
-                    src={getArtworkUrl(pokemon.id)}
+                  <PokemonArtwork
+                    pokemonId={pokemon.id}
                     alt={pokemonName}
-                    width={88}
-                    height={88}
-                    disableSkeleton
+                    size={88}
                   />
                   <span className="text-xs text-gray-400">
                     {formatPokemonNumber(pokemon.id)}

@@ -1,7 +1,6 @@
 "use client";
 
-import { Image } from "@nextui-org/react";
-import { getArtworkUrl } from "@/utils/pokemonFormat";
+import PokemonArtwork from "../pokemon-artwork";
 
 const PREVIEW_STATS = [
   { label: "HP", value: 35 },
@@ -14,15 +13,12 @@ const TEAM_PREVIEW_IDS = [6, 94, 131, 143, null, null];
 export const PokedexPreview = () => (
   <div aria-hidden className="flex items-end">
     {[1, 4, 7].map((id, index) => (
-      <Image
+      <PokemonArtwork
         key={id}
-        src={getArtworkUrl(id)}
+        pokemonId={id}
         alt=""
-        removeWrapper
-        disableSkeleton
-        className={`drop-shadow-xl ${
-          index === 1 ? "z-10 -mx-4 w-28" : "w-24"
-        }`}
+        size={index === 1 ? 112 : 96}
+        className={`drop-shadow-xl ${index === 1 ? "relative z-10 -mx-4" : ""}`}
       />
     ))}
   </div>
@@ -30,12 +26,11 @@ export const PokedexPreview = () => (
 
 export const DetailsPreview = () => (
   <div aria-hidden className="flex items-center gap-4">
-    <Image
-      src={getArtworkUrl(25)}
+    <PokemonArtwork
+      pokemonId={25}
       alt=""
-      removeWrapper
-      disableSkeleton
-      className="w-28 drop-shadow-xl"
+      size={112}
+      className="drop-shadow-xl"
     />
     <div className="flex w-28 flex-col gap-1.5 rounded-xl bg-black/30 p-3">
       {PREVIEW_STATS.map((stat) => (
@@ -64,13 +59,7 @@ export const TeamPreview = () => (
           key={id}
           className="flex h-14 w-14 items-center justify-center rounded-xl bg-black/25"
         >
-          <Image
-            src={getArtworkUrl(id)}
-            alt=""
-            removeWrapper
-            disableSkeleton
-            className="w-12"
-          />
+          <PokemonArtwork pokemonId={id} alt="" size={48} />
         </div>
       ) : (
         <div

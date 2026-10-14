@@ -6,7 +6,7 @@ import { parseAsInteger, useQueryState } from "nuqs";
 import PokemonCard from "./pokemon-card";
 import ListPagination from "./list-pagination";
 import { useGetPokemons } from "@/utils/hooks/useGetPokemons";
-import { useGetPokemonsType } from "@/utils/hooks/useGetPokemonsType";
+import { usePokemonTypeIndex } from "@/utils/hooks/usePokemonTypeIndex";
 import {
   filterPokemons,
   getTotalPages,
@@ -35,20 +35,22 @@ const PokemonList = () => {
     refetch,
   } = useGetPokemons();
   const {
-    data: typeIds,
-    isLoading: isTypeLoading,
+    typesById,
+    isPending: isTypeLoading,
     isError: isTypeError,
-    refetch: refetchType,
-  } = useGetPokemonsType(activeType);
+    retry: retryTypes,
+  } = usePokemonTypeIndex();
 
   const filteredPokemons = useMemo(() => {
     const allPokemons = pokemons ?? [];
-    const pokemonsOfType = typeIds
-      ? allPokemons.filter((pokemon) => typeIds.has(pokemon.id))
+    const pokemonsOfType = activeType
+      ? allPokemons.filter((pokemon) =>
+          typesById.get(pokemon.id)?.includes(activeType)
+        )
       : allPokemons;
 
     return filterPokemons(pokemonsOfType, query ?? "");
-  }, [pokemons, typeIds, query]);
+  }, [pokemons, typesById, activeType, query]);
 
   const totalPages = getTotalPages(filteredPokemons.length, PAGE_SIZE);
   const currentPage = Math.min(Math.max(page, 1), totalPages);
@@ -68,7 +70,7 @@ const PokemonList = () => {
         <Button
           color="primary"
           variant="flat"
-          onPress={() => (isError ? refetch() : refetchType())}
+          onPress={() => (isError ? refetch() : retryTypes())}
         >
           Tentar novamente
         </Button>
@@ -106,7 +108,12 @@ const PokemonList = () => {
       </p>
       <div className={gridClassName}>
         {visiblePokemons.map((pokemon) => (
-          <PokemonCard key={pokemon.id} id={pokemon.id} name={pokemon.name} />
+          <PokemonCard
+            key={pokemon.id}
+            id={pokemon.id}
+            name={pokemon.name}
+            types={typesById.get(pokemon.id) ?? []}
+          />
         ))}
       </div>
       <div className="flex justify-center">

@@ -6,6 +6,7 @@ import { Button, Input } from "@nextui-org/react";
 import { TEAM_NAME_MAX_LENGTH, TEAM_SIZE } from "@/lib/team-db";
 import { TeamDraft } from "@/types/team";
 import { ChevronIcon } from "@/assets/chevron-icon";
+import { usePokemonTypeIndex } from "@/utils/hooks/usePokemonTypeIndex";
 import TeamPokemonSlot, { EmptyTeamSlot } from "./team-pokemon-slot";
 import PokemonPicker from "./pokemon-picker";
 import TeamCoverage from "./team-coverage";
@@ -31,6 +32,7 @@ const TeamEditor = ({
   const [pokemonIds, setPokemonIds] = useState(
     initialPokemonIds.slice(0, TEAM_SIZE)
   );
+  const { typesById } = usePokemonTypeIndex();
 
   const isFull = pokemonIds.length >= TEAM_SIZE;
   const isEmpty = pokemonIds.length === 0;
@@ -111,6 +113,7 @@ const TeamEditor = ({
               <TeamPokemonSlot
                 key={`${index}-${pokemonId}`}
                 pokemonId={pokemonId}
+                types={typesById.get(pokemonId) ?? []}
                 onRemove={() => removePokemon(index)}
               />
             ) : (

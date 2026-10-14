@@ -3,7 +3,6 @@
 import { useMemo, useState } from "react";
 import {
   Button,
-  Image,
   Input,
   Select,
   SelectItem,
@@ -13,18 +12,15 @@ import { useTranslation } from "next-i18next";
 import { SearchIcon } from "@/assets/search-icon";
 import { types } from "@/components/types";
 import { useGetPokemons } from "@/utils/hooks/useGetPokemons";
-import { useGetPokemonsType } from "@/utils/hooks/useGetPokemonsType";
+import { usePokemonTypeIndex } from "@/utils/hooks/usePokemonTypeIndex";
 import {
   filterPokemons,
   getTotalPages,
   paginate,
 } from "@/utils/filterPokemons";
-import {
-  formatPokemonName,
-  formatPokemonNumber,
-  getArtworkUrl,
-} from "@/utils/pokemonFormat";
+import { formatPokemonName, formatPokemonNumber } from "@/utils/pokemonFormat";
 import ListPagination from "../list-pagination";
+import PokemonArtwork from "../pokemon-artwork";
 
 interface PokemonPickerProps {
   isFull: boolean;
@@ -42,19 +38,22 @@ const PokemonPicker = ({ isFull, onSelect }: PokemonPickerProps) => {
   const activeType = type === "all" ? null : type;
   const { data: pokemons, isLoading, isError, refetch } = useGetPokemons();
   const {
-    data: typeIds,
-    isLoading: isTypeLoading,
+    typesById,
+    isPending: isTypeLoading,
     isError: isTypeError,
-  } = useGetPokemonsType(activeType);
+    retry: retryTypes,
+  } = usePokemonTypeIndex();
 
   const filteredPokemons = useMemo(() => {
     const allPokemons = pokemons ?? [];
-    const pokemonsOfType = typeIds
-      ? allPokemons.filter((pokemon) => typeIds.has(pokemon.id))
+    const pokemonsOfType = activeType
+      ? allPokemons.filter((pokemon) =>
+          typesById.get(pokemon.id)?.includes(activeType)
+        )
       : allPokemons;
 
     return filterPokemons(pokemonsOfType, search);
-  }, [pokemons, typeIds, search]);
+  }, [pokemons, typesById, activeType, search]);
 
   const totalPages = getTotalPages(filteredPokemons.length, PAGE_SIZE);
   const currentPage = Math.min(page, totalPages);
@@ -70,7 +69,11 @@ const PokemonPicker = ({ isFull, onSelect }: PokemonPickerProps) => {
       return (
         <div className="flex flex-col items-center gap-3 py-8 text-center">
           <p>Não foi possível carregar os pokémons.</p>
-          <Button color="primary" variant="flat" onPress={() => refetch()}>
+          <Button
+            color="primary"
+            variant="flat"
+            onPress={() => (isError ? refetch() : retryTypes())}
+          >
             Tentar novamente
           </Button>
         </div>
@@ -110,13 +113,7 @@ const PokemonPicker = ({ isFull, onSelect }: PokemonPickerProps) => {
                 aria-label={`Adicionar ${name} ao time`}
                 className="flex flex-col items-center gap-1 rounded-xl bg-white/5 p-2 pb-3 text-center transition-colors hover:bg-white/10 disabled:cursor-not-allowed disabled:opacity-40 disabled:hover:bg-white/5"
               >
-                <Image
-                  src={getArtworkUrl(pokemon.id)}
-                  alt=""
-                  width={72}
-                  height={72}
-                  disableSkeleton
-                />
+                <PokemonArtwork pokemonId={pokemon.id} alt="" size={72} />
                 <span className="text-xs text-gray-400">
                   {formatPokemonNumber(pokemon.id)}
                 </span>
