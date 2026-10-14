@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 import Link from "next/link";
-import { routes } from "@/utils/routes";
+import { isRouteActive, routes } from "@/utils/routes";
 import { NavbarMenu, NavbarMenuItem } from "@nextui-org/react";
 
 interface MobileMenuProps {
@@ -19,7 +19,7 @@ const MobileMenu = ({ pathname, setIsOpen }: MobileMenuProps) => {
         >
           <Link
             className={
-              pathname === item.path
+              isRouteActive(pathname, item.path)
                 ? "text-bold text-blue-400 font-bold uppercase text-sm min-w-[120px]"
                 : " text-gray-200 font-medium text-sm uppercase min-w-[120px] hover:text-white"
             }

@@ -5,13 +5,11 @@ export const routes = [
       path: "/pokemons",
     },
     {
-      id: 2,
-      text: "Inicio",
-      path: "/",
-    },
-    {
       id: 3,
       text: "Team Builder",
       path: "/builder",
     },
   ];
+
+export const isRouteActive = (pathname: string, path: string) =>
+  pathname === path || (path !== "/" && pathname.startsWith(`${path}/`));

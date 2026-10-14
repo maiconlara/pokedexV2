@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
-import { routes } from "@/utils/routes";
+import { isRouteActive, routes } from "@/utils/routes";
 import pokemonLogo from "@/assets/pokemonLogo.webp";
 
 import {
@@ -31,16 +31,23 @@ const Navbar = () => {
     >
       <NavbarMenuToggle
         aria-label={isOpen ? "Close menu" : "Open menu"}
-        className="sm:hidden absolute right-4"
+        className="md:hidden absolute right-4"
       />
       <NavbarBrand className="gap-3">
-        <Image
-          width={100}
-          height={40}
-          src={pokemonLogo}
-          alt="Pokemon"
-          className="max-w-[100px] max-h-[40px]"
-        />
+        <Link
+          href="/"
+          aria-label="Ir para o início"
+          onClick={() => setIsOpen(false)}
+          className="rounded-lg transition-opacity hover:opacity-80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-blue-400"
+        >
+          <Image
+            width={100}
+            height={40}
+            src={pokemonLogo}
+            alt="Pokemon"
+            className="max-w-[100px] max-h-[40px]"
+          />
+        </Link>
       </NavbarBrand>
       <NavbarContent
         className="hidden md:flex sm:gap-5 "
@@ -49,12 +56,12 @@ const Navbar = () => {
         {routes.map((item) => (
           <NavbarItem
             key={item.id}
-            isActive={pathname === item.path ? true : false}
+            isActive={isRouteActive(pathname, item.path)}
             className={pathname === item.path ? "pointer-events-none" : ""}
           >
             <Link
               className={
-                pathname === item.path
+                isRouteActive(pathname, item.path)
                   ? "text-bold text-blue-400 font-bold uppercase text-sm min-w-[120px]"
                   : " text-gray-200 font-medium text-sm uppercase min-w-[120px] hover:text-white"
               }
