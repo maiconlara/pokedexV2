@@ -1,7 +1,14 @@
 "use client";
 
 import { useMemo, useState } from "react";
-import { Button, Image, Input, Select, SelectItem } from "@nextui-org/react";
+import {
+  Button,
+  Image,
+  Input,
+  Select,
+  SelectItem,
+  Skeleton,
+} from "@nextui-org/react";
 import { useTranslation } from "next-i18next";
 import { SearchIcon } from "@/assets/search-icon";
 import { types } from "@/components/types";
@@ -74,10 +81,7 @@ const PokemonPicker = ({ isFull, onSelect }: PokemonPickerProps) => {
       return (
         <div className="grid grid-cols-2 gap-3 sm:grid-cols-4 lg:grid-cols-6">
           {Array.from({ length: PAGE_SIZE }, (_, index) => (
-            <div
-              key={index}
-              className="h-[136px] animate-pulse rounded-xl bg-white/5"
-            />
+            <Skeleton key={index} className="h-[136px] rounded-xl" />
           ))}
         </div>
       );

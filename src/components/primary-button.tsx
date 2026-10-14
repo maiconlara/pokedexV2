@@ -5,16 +5,16 @@ import Link from "next/link";
 
 interface ButtonProps {
   text: string;
+  href?: string;
 }
 
-const PrimaryButton = ({ text }: ButtonProps) => {
+const PrimaryButton = ({ text, href = "/pokemons" }: ButtonProps) => {
   return (
     <Button
       as={Link}
-      href={"/pokemons"}
+      href={href}
       color="primary"
-      variant="flat"
-      className="uppercase"
+      className="uppercase font-medium"
     >
       {text}
     </Button>

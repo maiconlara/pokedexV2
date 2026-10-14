@@ -1,7 +1,7 @@
 "use client";
 
 import { useMemo, useRef } from "react";
-import { Button } from "@nextui-org/react";
+import { Button, Skeleton } from "@nextui-org/react";
 import { parseAsInteger, useQueryState } from "nuqs";
 import PokemonCard from "./pokemon-card";
 import ListPagination from "./list-pagination";
@@ -80,10 +80,7 @@ const PokemonList = () => {
     return (
       <div className={gridClassName}>
         {Array.from({ length: PAGE_SIZE }, (_, index) => (
-          <div
-            key={index}
-            className="h-[160px] rounded-2xl bg-white/10 animate-pulse"
-          />
+          <Skeleton key={index} className="h-[160px] rounded-2xl" />
         ))}
       </div>
     );
@@ -103,7 +100,9 @@ const PokemonList = () => {
   return (
     <div ref={listTopRef} className="flex flex-col gap-6 scroll-mt-6">
       <p className="text-sm text-gray-400">
-        Mostrando {firstItem}–{lastItem} de {filteredPokemons.length} pokémons
+        {filteredPokemons.length === 1
+          ? "1 pokémon encontrado"
+          : `Mostrando ${firstItem}–${lastItem} de ${filteredPokemons.length} pokémons`}
       </p>
       <div className={gridClassName}>
         {visiblePokemons.map((pokemon) => (

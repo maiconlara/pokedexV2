@@ -32,14 +32,7 @@ const PokemonCard = ({ id, name }: PokemonCardProps) => {
       aria-label={`Ver detalhes de ${formattedName}`}
       className="rounded-2xl transition-transform duration-200 hover:-translate-y-1 hover:shadow-xl focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-400"
     >
-      <Skeleton
-        isLoaded={!isLoading}
-        disableAnimation
-        className="rounded-2xl"
-        classNames={{
-          base: ["bg-[#aaa]"],
-        }}
-      >
+      <Skeleton isLoaded={!isLoading} className="rounded-2xl">
         <div
           style={typeColor}
           className="flex flex-col w-full items-center justify-center h-[160px] md:w-[180px] lg:w-[200px] xl:w-[290px] 2xl:w-[220px] rounded-2xl"
