@@ -1,12 +1,9 @@
-
+import TeamList from "@/components/team-builder/team-list";
 
 const Builder = () => {
-
   return (
-    <main className="flex max-w-screen max-h-screen flex-col items-center justify-center">
-      <div className="items-center justify-center flex h-[80vh]">
-        <p>Team Builder</p>
-      </div>
+    <main className="flex flex-col max-w-screen items-center md:px-4 lg:px-8 xl:px-10 2xl:px-2">
+      <TeamList />
     </main>
   );
 };
